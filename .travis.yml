@@ -1,0 +1,28 @@
+sudo: false
+dist: xenial
+language: rust
+cache: cargo
+
+rust:
+  - stable
+  - beta
+  - nightly
+
+env:
+  global:
+  - RUST_BACKTRACE=1
+
+script:
+  - cargo test
+
+deploy:
+  provider: script
+  script: cargo publish
+  on:
+    tags: true
+    repo: althonos/obofoundry.rs
+    rust: stable
+
+notifications:
+  email:
+  - althonosdev@gmail.com
