@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.0...HEAD
+
+## [v0.1.0] - 2019-03-19
+
 Initial release.
 
-
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/95e6d4b...HEAD
+[v0.1.0]: https://github.com/althonos/obofoundry.rs/compare/95e6d4b...v0.1.0
