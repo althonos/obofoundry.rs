@@ -28,7 +28,7 @@ after_success:
 
 deploy:
   provider: script
-  script: cargo publish
+  script: ci/travis/deploy.sh
   on:
     tags: true
     repo: althonos/obofoundry.rs
