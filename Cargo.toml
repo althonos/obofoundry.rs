@@ -8,7 +8,7 @@ description  = "Structures to deserialize OBO Foundry listings into."
 repository   = "https://github.com/althonos/obofoundry.rs"
 readme       = "README.md"
 keywords     = ["obo", "ontology", "obofoundry", "foundry", "serde"]
-categories   = []
+categories   = ["science"]
 
 [lib]
 name = "obofoundry"
