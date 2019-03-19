@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 extern crate reqwest;
 extern crate serde_json;
 extern crate serde_yaml;
@@ -17,19 +19,9 @@ fn yaml() {
         Some(s) => String::with_capacity(usize::from_str(s.to_str().unwrap()).unwrap()),
         None => String::new(),
     };
-    res.read_to_string(&mut yml);
+    res.read_to_string(&mut yml).unwrap();
 
     let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
-
-    // for ont in foundry.ontologies {
-    //     for p in ont.dependencies {
-    //         println!("{:?}", p.ty);
-    //     }
-    // }
-
-    // println!("{:#?}", foundry.ontologies[0]);
-
-    // panic!();
 }
 
 #[test]
@@ -41,7 +33,7 @@ fn json() {
         Some(s) => String::with_capacity(usize::from_str(s.to_str().unwrap()).unwrap()),
         None => String::new(),
     };
-    res.read_to_string(&mut jsn);
+    res.read_to_string(&mut jsn).unwrap();
 
     let foundry: obofoundry::Foundry = serde_json::from_str(&jsn).unwrap();
 }
