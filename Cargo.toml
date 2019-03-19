@@ -1,13 +1,14 @@
 [package]
-name        = "obofoundry"
-version     = "0.1.0"
-authors     = ["Martin Larralde <martin.larralde@ens-cachan.fr>"]
-edition     = "2018"
-license     = "MIT"
-description = "Structures to deserialize OBO Foundry listings into."
-readme      = "README.md"
-keywords    = ["obo", "ontology", "obofoundry", "foundry", "serde"]
-categories  = []
+name         = "obofoundry"
+version      = "0.1.0"
+authors      = ["Martin Larralde <martin.larralde@ens-cachan.fr>"]
+edition      = "2018"
+license      = "MIT"
+description  = "Structures to deserialize OBO Foundry listings into."
+repository   = "https://github.com/althonos/obofoundry.rs"
+readme       = "README.md"
+keywords     = ["obo", "ontology", "obofoundry", "foundry", "serde"]
+categories   = []
 
 [lib]
 name = "obofoundry"
