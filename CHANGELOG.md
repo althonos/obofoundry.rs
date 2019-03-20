@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Fixed parsing of `Url` in `examples_vector` private deserializer.
+
+### Documentation
+- Add docstring to `src/lib.rs` with embedded changelog.
+
 
 [Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.0...HEAD
 

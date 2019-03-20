@@ -1,3 +1,52 @@
+//! *Structures to deserialize [OBO Foundry](http://www.obofoundry.org) listings into.*
+//!
+//! [![TravisCI](https://img.shields.io/travis/althonos/obofoundry.rs/master.svg?maxAge=600&style=flat-square)](https://travis-ci.org/althonos/obofoundry.rs/branches)
+//! [![Codecov](https://img.shields.io/codecov/c/gh/althonos/obofoundry.rs/master.svg?style=flat-square&maxAge=600)](https://codecov.io/gh/althonos/obofoundry.rs)
+//! [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&maxAge=2678400)](https://choosealicense.com/licenses/mit/)
+//! [![Source](https://img.shields.io/badge/source-GitHub-303030.svg?maxAge=2678400&style=flat-square)](https://github.com/althonos/obofoundry.rs)
+//! [![Crate](https://img.shields.io/crates/v/obofoundry.svg?maxAge=600&style=flat-square)](https://crates.io/crates/obofoundry)
+//! [![Documentation](https://img.shields.io/badge/docs.rs-latest-4d76ae.svg?maxAge=2678400&style=flat-square)](https://docs.rs/obofoundry)
+//! [![Changelog](https://img.shields.io/badge/keep%20a-changelog-8A0707.svg?maxAge=2678400&style=flat-square)](http://keepachangelog.com/)
+//!
+//! This library provides structs that can make use of `serde_yaml` and
+//! `serde_json` to deserialize the table of ontologies provided by the
+//! OBO Foundry. It provides a safe and efficient alternative to manually
+//! parsing the obtained JSON/YAML, which is actually quite tricky since
+//! there is no actual scheme available. Use the [`Foundry`]("struct.Foundry.html")
+//! type as an entry point for deserialization.
+//!
+//! # Example
+//!
+//! Download the `ontologies.yml` table from the OBO Foundry and use it to
+//! extract all PURLs to ontologies in the OBO format:
+//!
+//! ```rust
+//! extern crate obofoundry;
+//! extern crate reqwest;
+//! extern crate serde_yaml;
+//! use std::io::Read;
+//!
+//! const URL: &'static strc = "http://www.obofoundry.org/registry/ontologies.yml";
+//!
+//! fn main() {
+//!
+//!     let mut res = reqwest::get(url).expect("could not get YAML file");
+//!     let mut yml = String::new();
+//!     res.read_to_string(&mut yml).expect("could not read response");
+//!
+//!     let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
+//!     for ontology in &foundry.ontologies {
+//!         for product in &ontology.products {
+//!             if product.id.ends_with(".obo") {
+//!                 println!("{} - {}", product.id, product.ontology_purl)
+//!             }
+//!         }
+//!     }
+//! }
+//! ```
+#![cfg_attr(feature = "dox", doc(include = "../CHANGELOG.md"))]
+#![cfg_attr(feature = "dox", feature(external_doc))]
+
 extern crate serde;
 extern crate url;
 
@@ -43,7 +92,8 @@ where
     #[derive(Deserialize, Debug)]
     #[serde(untagged)]
     pub enum MaybeExample {
-        String(String),
+        #[serde(with = "url_serde")]
+        String(Url),
         Example(Example),
     }
 
@@ -51,8 +101,8 @@ where
         v.into_iter()
             .map(|mex| match mex {
                 MaybeExample::Example(e) => e,
-                MaybeExample::String(s) => Example {
-                    url: Url::parse(&s).unwrap(),
+                MaybeExample::String(url) => Example {
+                    url: url,
                     description: None,
                 },
             })
