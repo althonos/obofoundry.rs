@@ -20,10 +20,9 @@ before_install:
   - ci/travis/setup.sh
 
 script:
-  - cargo test
+  - cargo tarpaulin -v --out Xml --ciserver travis-ci
 
-after_success:
-  - cargo tarpaulin --out=Xml --ciserver=travis-ci
+after_script:
   - curl -SsL "https://codecov.io/bash" | bash
 
 deploy:

@@ -30,7 +30,7 @@
 //!
 //! fn main() {
 //!
-//!     let mut res = reqwest::get(url).expect("could not get YAML file");
+//!     let mut res = reqwest::get(URL).expect("could not get YAML file");
 //!     let mut yml = String::new();
 //!     res.read_to_string(&mut yml).expect("could not read response");
 //!
