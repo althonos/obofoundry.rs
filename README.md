@@ -1,6 +1,9 @@
 # `obofoundry.rs`
 
-*Structures to deserialize OBO Foundry listings into.*
+*Structures to deserialize [OBO Foundry] listings into.*
+
+[OBO Foundry]: http://www.obofoundry.org/
+
 
 [![TravisCI](https://img.shields.io/travis/althonos/obofoundry.rs/master.svg?maxAge=600&style=flat-square)](https://travis-ci.org/althonos/obofoundry.rs/branches)
 [![Codecov](https://img.shields.io/codecov/c/gh/althonos/obofoundry.rs/master.svg?style=flat-square&maxAge=600)](https://codecov.io/gh/althonos/obofoundry.rs)
@@ -51,15 +54,4 @@ let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
 
 ## Examples
 
-### Print the PURLs of all `obo` ontologies in the OBO Foundry
-
-```rust
-let foundry: obofoundry::Foundry = ...;
-for ontology in &foundry.ontologies {
-    for product in &ontology.products {
-        if product.id.ends_with(".obo") {
-            println!("{} - {}", product.id, product.ontology_purl);
-        }
-    }
-}
-```
+See the online documentation at [`crates.io`](https://docs.rs/obofoundry) for more examples.
