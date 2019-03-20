@@ -26,7 +26,7 @@
 //! extern crate serde_yaml;
 //! use std::io::Read;
 //!
-//! const URL: &'static strc = "http://www.obofoundry.org/registry/ontologies.yml";
+//! const URL: &'static str = "http://www.obofoundry.org/registry/ontologies.yml";
 //!
 //! fn main() {
 //!
