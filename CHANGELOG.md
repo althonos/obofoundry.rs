@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.1...HEAD
+
+
+## [v0.1.1] - 2019-03-21
+
 ### Fixed
 - Fixed parsing of `Url` in `examples_vector` private deserializer.
 
@@ -15,7 +20,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add docstrings to all structures and enums in `src/lib.rs`.
 - Add OBO Foundry logo to API doc generated with `rustdoc`.
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.0...HEAD
+[v0.1.1]: https://github.com/althonos/obofoundry.rs/compare/v0.1.0...v0.1.1
+
 
 ## [v0.1.0] - 2019-03-19
 
