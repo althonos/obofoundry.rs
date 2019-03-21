@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Documentation
 - Add docstring to `src/lib.rs` with embedded changelog.
 - Add docstrings to all structures and enums in `src/lib.rs`.
-
+- Add OBO Foundry logo to API doc generated with `rustdoc`.
 
 [Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.0...HEAD
 

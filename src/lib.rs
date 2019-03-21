@@ -46,6 +46,7 @@
 //! ```
 #![cfg_attr(feature = "dox", doc(include = "../CHANGELOG.md"))]
 #![cfg_attr(feature = "dox", feature(external_doc))]
+#![doc(html_logo_url = "http://www.obofoundry.org/images/foundrylogo.png")]
 
 extern crate serde;
 extern crate url;
