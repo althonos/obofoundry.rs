@@ -55,6 +55,7 @@ use serde::Deserialize;
 use serde::Serialize;
 use url::Url;
 
+/// Deserialize an optional `bool` encoded as a 0 or a 1.
 fn optional_bool01<'de, D>(deserializer: D) -> Result<Option<bool>, D::Error>
 where
     D: Deserializer<'de>,
@@ -73,6 +74,7 @@ where
     }
 }
 
+/// Deserialize a possibly missing vector into an empty one.
 fn optional_vector<'de, D, T>(deserializer: D) -> Result<Vec<T>, D::Error>
 where
     D: Deserializer<'de>,
@@ -85,6 +87,7 @@ where
     }
 }
 
+/// Deserialize a vector of `Example`.
 fn examples_vector<'de, D>(deserializer: D) -> Result<Vec<Example>, D::Error>
 where
     D: Deserializer<'de>,
@@ -110,19 +113,23 @@ where
     })
 }
 
+/// Returns `true`.
 const fn bool_true() -> bool {
     true
 }
 
+/// Returns `false`.
 const fn bool_false() -> bool {
     false
 }
 
+/// An index of ontologies following the OBO Foundry principles.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub struct Foundry {
     pub ontologies: Vec<Ontology>,
 }
 
+/// A comprehensive table of informations about an ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Ontology {
@@ -201,6 +208,7 @@ pub struct Ontology {
     pub wikidata_template: Option<String>,
 }
 
+/// A redirection to another location.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub struct Redirect {
     #[serde(rename = "match")]
@@ -209,11 +217,14 @@ pub struct Redirect {
     pub url: Url,
 }
 
+/// Metadata concerning the development of the ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
+#[serde(deny_unknown_fields)]
 pub struct Development {
     pub id_policy: String,
 }
 
+/// Reference to a particular dependency.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Dependency {
@@ -229,6 +240,7 @@ pub struct Dependency {
     pub publications: Vec<Publication>,
 }
 
+/// Information about the way an ontology is built.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Build {
@@ -246,6 +258,7 @@ pub struct Build {
     pub email_cc: Option<String>,
 }
 
+/// The build method for an ontology build.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(rename_all = "lowercase")]
 pub enum BuildMethod {
@@ -255,6 +268,7 @@ pub enum BuildMethod {
     Vcs,
 }
 
+/// The build system for an ontology build.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(rename_all = "lowercase")]
 pub enum BuildSystem {
@@ -262,6 +276,7 @@ pub enum BuildSystem {
     Svn,
 }
 
+/// The legal information about an ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct License {
@@ -271,6 +286,7 @@ pub struct License {
     pub url: Url,
 }
 
+/// The corresponding editor of an ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Contact {
@@ -280,6 +296,7 @@ pub struct Contact {
     pub label: String,
 }
 
+/// A CI/CD job pipeline running for the ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Job {
@@ -288,6 +305,7 @@ pub struct Job {
     pub ty: JobType,
 }
 
+/// The type of a job pipeline.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub enum JobType {
     #[serde(rename = "travis-ci")]
@@ -296,6 +314,7 @@ pub enum JobType {
     ReleaseBuild,
 }
 
+/// A released product of an ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Product {
@@ -322,6 +341,7 @@ pub struct Product {
     pub ty: Option<String>,
 }
 
+/// A publication relevant to the ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Publication {
@@ -329,6 +349,7 @@ pub struct Publication {
     pub title: Option<String>,
 }
 
+/// A taxon specifically relevant to the ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Taxon {
@@ -336,22 +357,24 @@ pub struct Taxon {
     pub label: Option<String>,
 }
 
+/// A relevant project an ontology is used in.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Usage {
     pub description: Option<String>,
     #[serde(default, deserialize_with = "examples_vector", alias = "example")]
-    pub examples: Vec<Example>, // FIXME?: list or dict
+    pub examples: Vec<Example>,
     #[serde(alias = "url", with = "url_serde")]
     pub user: Url,
     pub label: Option<String>,
     #[serde(rename = "type")]
-    pub ty: Option<UsageType>, // FIXME: enum
+    pub ty: Option<UsageType>,
     #[serde(rename = "seeAlso")]
     pub see_also: Option<String>,
     pub reference: Option<String>,
 }
 
+/// The way an ontology can be used in a project.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum UsageType {
@@ -363,6 +386,7 @@ pub enum UsageType {
     Application,
 }
 
+/// A reference to an example usage of the ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Example {
@@ -371,6 +395,7 @@ pub struct Example {
     pub url: Url,
 }
 
+/// The current development status of the ontology development.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 #[serde(rename_all = "lowercase")]
@@ -380,6 +405,7 @@ pub enum ActivityStatus {
     Orphaned,
 }
 
+/// A reference to a browser for the ontology.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Browser {

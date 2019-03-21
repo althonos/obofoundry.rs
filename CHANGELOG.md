@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Documentation
 - Add docstring to `src/lib.rs` with embedded changelog.
+- Add docstrings to all structures and enums in `src/lib.rs`.
 
 
 [Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.0...HEAD
