@@ -54,4 +54,4 @@ let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
 
 ## Examples
 
-See the online documentation at [`crates.io`](https://docs.rs/obofoundry) for more examples.
+See the online documentation at [`docs.rs`](https://docs.rs/obofoundry) for more examples.
