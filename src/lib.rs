@@ -6,7 +6,7 @@
 //! [![Source](https://img.shields.io/badge/source-GitHub-303030.svg?maxAge=2678400&style=flat-square)](https://github.com/althonos/obofoundry.rs)
 //! [![Crate](https://img.shields.io/crates/v/obofoundry.svg?maxAge=600&style=flat-square)](https://crates.io/crates/obofoundry)
 //! [![Documentation](https://img.shields.io/badge/docs.rs-latest-4d76ae.svg?maxAge=2678400&style=flat-square)](https://docs.rs/obofoundry)
-//! [![Changelog](https://img.shields.io/badge/keep%20a-changelog-8A0707.svg?maxAge=2678400&style=flat-square)](http://keepachangelog.com/)
+//! [![Changelog](https://img.shields.io/badge/keep%20a-changelog-8A0707.svg?maxAge=2678400&style=flat-square)](https://github.com/althonos/obofoundry.rs/blob/master/CHANGELOG.md)
 //!
 //! This library provides structs that can make use of `serde_yaml` and
 //! `serde_json` to deserialize the table of ontologies provided by the
@@ -44,9 +44,6 @@
 //!     }
 //! }
 //! ```
-#![cfg_attr(feature = "dox", doc(include = "../CHANGELOG.md"))]
-#![cfg_attr(feature = "dox", feature(external_doc))]
-#![doc(html_logo_url = "http://www.obofoundry.org/images/foundrylogo.png")]
 
 extern crate serde;
 extern crate url;
