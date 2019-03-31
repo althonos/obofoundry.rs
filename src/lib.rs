@@ -51,6 +51,7 @@
 //! and provides a [changelog](https://github.com/althonos/obofoundry.rs/blob/master/CHANGELOG.md)
 //! in the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format.
 
+#![doc(html_logo_url = "https://github.com/OBOFoundry/OBOFoundry.github.io/raw/master/images/foundrylogo.png")]
 
 extern crate serde;
 extern crate url;
