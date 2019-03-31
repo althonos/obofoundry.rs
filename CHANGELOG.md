@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Documentation
+- Remove changelog section from docs generated with `rustdoc`
+- Change target of *Keep a Changelog* badges to refer to the rendered `CHANGELOG.md` file.
+
 [Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.1...HEAD
 
 
