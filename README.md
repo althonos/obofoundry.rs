@@ -55,3 +55,10 @@ let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
 ## Examples
 
 See the online documentation at [`docs.rs`](https://docs.rs/obofoundry) for more examples.
+
+## Changelog
+
+This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
+and provides a [changelog](https://github.com/althonos/obofoundry.rs/blob/master/CHANGELOG.md)
+in the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format.
+

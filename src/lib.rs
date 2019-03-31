@@ -44,6 +44,13 @@
 //!     }
 //! }
 //! ```
+//!
+//! # Changelog
+//!
+//! This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
+//! and provides a [changelog](https://github.com/althonos/obofoundry.rs/blob/master/CHANGELOG.md)
+//! in the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format.
+
 
 extern crate serde;
 extern crate url;
