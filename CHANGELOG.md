@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.2...HEAD
+
+
+## [v0.1.2] - 2019-03-30
+
 ### Changed
 - Removed unused `dox` feature.
 
@@ -14,7 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove changelog section from docs generated with `rustdoc`
 - Change target of *Keep a Changelog* badges to refer to the rendered `CHANGELOG.md` file.
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.1...HEAD
+[v0.1.2]: https://github.com/althonos/obofoundry.rs/compare/v0.1.1...v0.1.2
 
 
 ## [v0.1.1] - 2019-03-21
