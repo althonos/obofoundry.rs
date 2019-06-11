@@ -198,6 +198,8 @@ pub struct Ontology {
     #[serde(default, with = "url_serde")]
     pub repository: Option<Url>,
     pub source: Option<String>,
+    #[serde(default, with = "url_serde")]
+    pub source_url: Option<Url>,
     pub taxon: Option<Taxon>,
     pub termgenie: Option<String>,
     pub title: String,
