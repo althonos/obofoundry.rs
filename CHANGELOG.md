@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.2.0...HEAD
+
+
+## [v0.2.0] - 2019-06-11
+
+### Added
+- `source_url` field to `Ontology` structure.
+
+[v0.2.0]: https://github.com/althonos/obofoundry.rs/compare/v0.1.2...v0.2.0
 
 
 ## [v0.1.2] - 2019-03-30
