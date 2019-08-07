@@ -298,7 +298,7 @@ pub struct License {
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Contact {
-    pub email: String,
+    pub email: Option<String>,
     #[serde(alias = "contact")]
     pub github: Option<String>,
     pub label: String,
