@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.3.0...HEAD
+
+
+## [v0.3.0] - 2019-08-07
+
+### Changed
+- `email` field of `Contact` structure is now optional.
+
+[v0.3.0]: https://github.com/althonos/obofoundry.rs/compare/v0.2.0...v0.3.0
 
 
 ## [v0.2.0] - 2019-06-11
