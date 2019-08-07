@@ -1,17 +1,10 @@
 #!/bin/sh
 
-log() {
-		tput bold
-		tput setaf 2
-		echo -n "$1" ""
-		tput sgr0
-		shift 1
-		echo $@
-}
-
+. $(dirname $0)/functions.sh
 
 # --- Publish crate to `crates.io` ---------------------------------------------
 
+log Deploying \`$(basename $TRAVIS_REPO_SLUG)\` v$TRAVIS_TAG
 cargo publish --token $CRATES_IO_TOKEN
 
 
@@ -20,8 +13,8 @@ cargo publish --token $CRATES_IO_TOKEN
 export GEM_PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')"
 export PATH="${GEM_PATH}/bin:$PATH"
 
-log "  Installing" "chandler gem"
+log Installing chandler gem
 gem install --user-install chandler
 
-log "    Updating" "GitHub release notes"
-chandler push --github="$TRAVIS_REPO_SLUG"
+log Updating GitHub release notes
+chandler push --github="$TRAVIS_REPO_SLUG" --changelog="CHANGELOG.md"
