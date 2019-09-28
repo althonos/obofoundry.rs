@@ -327,6 +327,7 @@ pub enum JobType {
 #[serde(deny_unknown_fields)]
 pub struct Product {
     pub id: String,
+    pub name: Option<String>,
     pub is_canonical: Option<bool>,
     pub contact: Option<Contact>,
     #[serde(default, deserialize_with = "optional_vector")]
