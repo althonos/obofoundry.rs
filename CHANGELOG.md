@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.4.0...HEAD
+
+
+## [v0.4.0] - 2019-09-28
+
+### Added
+- `name` field of `Product` structure.
+
+[v0.4.0]: https://github.com/althonos/obofoundry.rs/compare/v0.3.0...v0.4.0
 
 
 ## [v0.3.0] - 2019-08-07
