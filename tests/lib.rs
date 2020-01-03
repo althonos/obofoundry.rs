@@ -21,7 +21,7 @@ fn yaml() {
     };
     res.read_to_string(&mut yml).unwrap();
 
-    let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
+    let _foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
 }
 
 #[test]
@@ -35,5 +35,5 @@ fn json() {
     };
     res.read_to_string(&mut jsn).unwrap();
 
-    let foundry: obofoundry::Foundry = serde_json::from_str(&jsn).unwrap();
+    let _foundry: obofoundry::Foundry = serde_json::from_str(&jsn).unwrap();
 }

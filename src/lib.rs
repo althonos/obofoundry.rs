@@ -101,7 +101,6 @@ where
     #[derive(Deserialize, Debug)]
     #[serde(untagged)]
     pub enum MaybeExample {
-        #[serde(with = "url_serde")]
         String(Url),
         Example(Example),
     }
@@ -155,14 +154,14 @@ pub struct Ontology {
     pub dependencies: Vec<Dependency>,
     pub development: Option<Development>,
     pub depicted_by: Option<String>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub documentation: Option<Url>,
     pub domain: Option<String>,
-    #[serde(default, rename = "DO wiki", with = "url_serde")]
+    #[serde(default, rename = "DO wiki")]
     pub do_wiki: Option<Url>,
     #[serde(rename = "exampleClass")]
     pub example_class: Option<String>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub facebook: Option<Url>,
     #[serde(default, deserialize_with = "optional_vector")]
     pub funded_by: Vec<String>,
@@ -181,9 +180,9 @@ pub struct Ontology {
     pub layout: String,
     pub license: Option<License>,
     pub mailing_list: Option<String>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub ontology_purl: Option<Url>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub page: Option<Url>,
     #[serde(rename = "preferredPrefix")]
     pub preferred_prefix: Option<String>,
@@ -195,15 +194,15 @@ pub struct Ontology {
     pub redirects: Vec<Redirect>,
     pub releases: Option<String>,
     pub replaced_by: Option<String>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub repository: Option<Url>,
     pub source: Option<String>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub source_url: Option<Url>,
     pub taxon: Option<Taxon>,
     pub termgenie: Option<String>,
     pub title: String,
-    #[serde(default, alias = "issue", with = "url_serde")]
+    #[serde(default, alias = "issue")]
     pub tracker: Option<Url>,
     #[serde(rename = "type")]
     pub ty: Option<String>,
@@ -221,7 +220,6 @@ pub struct Ontology {
 pub struct Redirect {
     #[serde(rename = "match")]
     pub path: String,
-    #[serde(with = "url_serde")]
     pub url: Url,
 }
 
@@ -260,7 +258,7 @@ pub struct Build {
     pub notes: Option<String>,
     pub oort_args: Option<String>,
     pub path: Option<String>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub source_url: Option<Url>,
     pub system: Option<BuildSystem>,
     pub email_cc: Option<String>,
@@ -290,7 +288,6 @@ pub enum BuildSystem {
 pub struct License {
     pub label: String,
     pub logo: Option<String>,
-    #[serde(with = "url_serde")]
     pub url: Url,
 }
 
@@ -335,11 +332,10 @@ pub struct Product {
     pub derived_from: Option<String>,
     pub description: Option<String>,
     pub format: Option<String>,
-    #[serde(default, with = "url_serde")]
+    #[serde(default)]
     pub homepage: Option<Url>,
     pub license: Option<String>,
     pub mireots_from: Option<String>,
-    #[serde(with = "url_serde")]
     pub ontology_purl: Url,
     pub page: Option<String>,
     pub title: Option<String>,
@@ -373,7 +369,7 @@ pub struct Usage {
     pub description: Option<String>,
     #[serde(default, deserialize_with = "examples_vector", alias = "example")]
     pub examples: Vec<Example>,
-    #[serde(alias = "url", with = "url_serde")]
+    #[serde(alias = "url")]
     pub user: Url,
     pub label: Option<String>,
     #[serde(rename = "type")]
@@ -400,7 +396,6 @@ pub enum UsageType {
 #[serde(deny_unknown_fields)]
 pub struct Example {
     pub description: Option<String>,
-    #[serde(with = "url_serde")]
     pub url: Url,
 }
 
@@ -420,6 +415,5 @@ pub enum ActivityStatus {
 pub struct Browser {
     pub label: String,
     pub title: String,
-    #[serde(with = "url_serde")]
     pub url: Url,
 }
