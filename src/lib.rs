@@ -138,6 +138,7 @@ pub struct Foundry {
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Ontology {
+    pub aberowl_id: Option<String>,
     pub activity_status: ActivityStatus,
     #[serde(rename = "alternativePrefix", alias = "alternatePrefix")]
     pub alternative_prefix: Option<String>,
@@ -389,6 +390,8 @@ pub enum UsageType {
     #[serde(rename = "Database")]
     Database,
     Application,
+    #[serde(rename = "database architecture")]
+    DatabaseArchitecture
 }
 
 /// A reference to an example usage of the ontology.
