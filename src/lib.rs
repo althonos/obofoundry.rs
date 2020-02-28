@@ -391,7 +391,8 @@ pub enum UsageType {
     Database,
     Application,
     #[serde(rename = "database architecture")]
-    DatabaseArchitecture
+    DatabaseArchitecture,
+    Analysis,
 }
 
 /// A reference to an example usage of the ontology.
