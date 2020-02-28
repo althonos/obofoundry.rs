@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 [Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.4.0...HEAD
 
 
+## [v0.5.0] - 2020-02-28
+
+### Added
+- `aberowl_id` field to `Ontology`.
+- `DatabaseArchitecture` and `Analysis` variants to `UsageType`.
+
+
 ## [v0.4.0] - 2019-09-28
 
 ### Added
