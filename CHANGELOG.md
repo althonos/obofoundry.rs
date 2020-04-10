@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.6.0...HEAD
+
+
+## [v0.6.0] - 2020-04-10
+
+### Added
+- `review` field to `Ontology`.
+- `AnnotationQuery` variants to `UsageType`.
+
+[v0.6.0]: https://github.com/althonos/obofoundry.rs/compare/v0.5.0...v0.6.0
 
 
 ## [v0.5.0] - 2020-02-28
@@ -15,6 +24,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - `aberowl_id` field to `Ontology`.
 - `DatabaseArchitecture` and `Analysis` variants to `UsageType`.
+
+[v0.5.0]: https://github.com/althonos/obofoundry.rs/compare/v0.4.0...v0.5.0
 
 
 ## [v0.4.0] - 2019-09-28
