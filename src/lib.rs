@@ -197,6 +197,7 @@ pub struct Ontology {
     pub replaced_by: Option<String>,
     #[serde(default)]
     pub repository: Option<Url>,
+    pub review: Option<Review>,
     pub source: Option<String>,
     #[serde(default)]
     pub source_url: Option<Url>,
@@ -214,6 +215,21 @@ pub struct Ontology {
     #[serde(rename = "wasDerivedFrom")]
     pub was_derived_from: Option<String>,
     pub wikidata_template: Option<String>,
+}
+
+/// A review for a particular ontology.
+#[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
+pub struct Review {
+    #[serde(rename = "date")]
+    year: u16,
+    document: Option<Document>,
+}
+
+/// A review document.
+#[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
+pub struct Document {
+    label: String,
+    link: Url,
 }
 
 /// A redirection to another location.
@@ -393,6 +409,8 @@ pub enum UsageType {
     #[serde(rename = "database architecture")]
     DatabaseArchitecture,
     Analysis,
+    #[serde(rename = "annotation and query")]
+    AnnotationQuery,
 }
 
 /// A reference to an example usage of the ontology.
