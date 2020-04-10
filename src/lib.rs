@@ -66,18 +66,7 @@ fn optional_bool01<'de, D>(deserializer: D) -> Result<Option<bool>, D::Error>
 where
     D: Deserializer<'de>,
 {
-    #[derive(Deserialize, Debug)]
-    #[serde(untagged)]
-    pub enum MaybeBool {
-        Opt(Option<u8>),
-        Bool(u8),
-    }
-
-    match MaybeBool::deserialize(deserializer) {
-        Ok(MaybeBool::Opt(opt)) => Ok(opt.map(|n| n != 0)),
-        Ok(MaybeBool::Bool(n)) => Ok(Some(n != 0)),
-        Err(e) => Err(e),
-    }
+    u8::deserialize(deserializer).map(|n| Some(n != 0))
 }
 
 /// Deserialize a possibly missing vector into an empty one.
@@ -86,11 +75,7 @@ where
     D: Deserializer<'de>,
     T: Deserialize<'de>,
 {
-    match Option::deserialize(deserializer) {
-        Ok(Some(v)) => Ok(v),
-        Ok(None) => Ok(Vec::new()),
-        Err(e) => Err(e),
-    }
+    Option::deserialize(deserializer).map(|opt| opt.unwrap_or_else(Vec::new))
 }
 
 /// Deserialize a vector of `Example`.
