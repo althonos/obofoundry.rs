@@ -3,7 +3,8 @@ dist: xenial
 language: rust
 
 cache:
-  cargo: true
+  directories:
+  - $TRAVIS_BUILD_DIR/target
 
 rust:
 - stable
