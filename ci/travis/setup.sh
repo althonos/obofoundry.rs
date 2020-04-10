@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 . $(dirname $0)/functions.sh
 
 # --- Setup cargo-tarpaulin ----------------------------------------------------------
@@ -8,8 +10,6 @@ LATEST=$(cargo search cargo-tarpaulin | grep cargo-tarpaulin | cut -f2 -d"\"")
 log Downloading cargo-tarpaulin v$LATEST
 URL="https://github.com/xd009642/tarpaulin/releases/download/${LATEST}/cargo-tarpaulin-${LATEST}-travis.tar.gz"
 curl -SsL "$URL" | tar xzvC "$HOME/.cargo/bin"
-
-cargo tarpaulin --version
 
 # --- Setup cargo-cache ------------------------------------------------------
 
