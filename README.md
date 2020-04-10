@@ -45,7 +45,7 @@ extern crate serde_yaml;
 
 let url = "http://www.obofoundry.org/registry/ontologies.yml";
 
-let mut res = reqwest::get(url).unwrap();
+let mut res = reqwest::blocking::get(url).unwrap();
 let mut yml = String::new();
 res.read_to_string(&mut yml);
 

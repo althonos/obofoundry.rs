@@ -14,7 +14,7 @@ use std::str::FromStr;
 fn yaml() {
     let url = "http://www.obofoundry.org/registry/ontologies.yml";
 
-    let mut res = reqwest::get(url).unwrap();
+    let mut res = reqwest::blocking::get(url).unwrap();
     let mut yml = match res.headers().get(CONTENT_LENGTH) {
         Some(s) => String::with_capacity(usize::from_str(s.to_str().unwrap()).unwrap()),
         None => String::new(),
@@ -28,7 +28,7 @@ fn yaml() {
 fn json() {
     let url = "http://www.obofoundry.org/registry/ontologies.jsonld";
 
-    let mut res = reqwest::get(url).unwrap();
+    let mut res = reqwest::blocking::get(url).unwrap();
     let mut jsn = match res.headers().get(CONTENT_LENGTH) {
         Some(s) => String::with_capacity(usize::from_str(s.to_str().unwrap()).unwrap()),
         None => String::new(),
