@@ -22,7 +22,7 @@
 //!
 //! ```rust
 //! extern crate obofoundry;
-//! extern crate reqwest;
+//! extern crate ureq;
 //! extern crate serde_yaml;
 //! use std::io::Read;
 //!
@@ -30,11 +30,10 @@
 //!
 //! fn main() {
 //!
-//!     let mut res = reqwest::blocking::get(URL).expect("could not get file");
-//!     let mut yml = String::new();
-//!     res.read_to_string(&mut yml).expect("could not read response");
+//!     let res = ureq::get(URL).call();
+//!     let reader = res.into_reader();
 //!
-//!     let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
+//!     let foundry: obofoundry::Foundry = serde_yaml::from_reader(reader).unwrap();
 //!     for ontology in &foundry.ontologies {
 //!         for product in &ontology.products {
 //!             if product.id.ends_with(".obo") {

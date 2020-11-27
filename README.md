@@ -36,20 +36,18 @@ let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
 ```
 
 It's also possible to use an HTTP library to load the listings from the OBO Foundry
-website directly, for instance using `reqwest`:
+website directly, for instance using [`ureq`](https://crates.io/crates/ureq):
 
 ```rust
 extern crate obofoundry;
-extern crate reqwest;
+extern crate ureq;
 extern crate serde_yaml;
 
 let url = "http://www.obofoundry.org/registry/ontologies.yml";
 
-let mut res = reqwest::blocking::get(url).unwrap();
-let mut yml = String::new();
-res.read_to_string(&mut yml);
-
-let foundry: obofoundry::Foundry = serde_yaml::from_str(&yml).unwrap();
+let res = ureq::get(url).call();
+let reader = res.into_reader(); 
+let foundry: obofoundry::Foundry = serde_yaml::from_reader(reader).unwrap();
 ```
 
 ## Examples
