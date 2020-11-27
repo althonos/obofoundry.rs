@@ -7,7 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.7.0...HEAD
+
+
+## [v0.7.0] - 2020-11-27
+
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.6.0...v0.7.0
+
+### Added
+- `slack` field to `Ontology`.
+
+### Changed
+- Replaced `reqwest` with `ureq` in tests and examples.
 
 
 ## [v0.6.0] - 2020-04-10

@@ -34,6 +34,7 @@ before_cache:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script: ci/travis/deploy.sh
   on:
     tags: true
