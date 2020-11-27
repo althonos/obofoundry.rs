@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [v0.7.0] - 2020-11-27
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.6.0...v0.7.0
+[v0.7.0]: https://github.com/althonos/obofoundry.rs/compare/v0.6.0...v0.7.0
 
 ### Added
 - `slack` field to `Ontology`.
