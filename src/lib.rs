@@ -183,6 +183,8 @@ pub struct Ontology {
     #[serde(default)]
     pub repository: Option<Url>,
     pub review: Option<Review>,
+    #[serde(default)]
+    pub slack: Option<Url>,
     pub source: Option<String>,
     #[serde(default)]
     pub source_url: Option<Url>,
