@@ -6,9 +6,6 @@ extern crate ureq;
 
 extern crate obofoundry;
 
-use std::io::Read;
-use std::str::FromStr;
-
 #[test]
 fn yaml() {
     let url = "http://www.obofoundry.org/registry/ontologies.yml";
