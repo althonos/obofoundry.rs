@@ -1,7 +1,7 @@
 [package]
 name         = "obofoundry"
-version      = "0.7.0"
-authors      = ["Martin Larralde <martin.larralde@ens-cachan.fr>"]
+version      = "0.8.0"
+authors      = ["Martin Larralde <martin.larralde@embl.de>"]
 edition      = "2018"
 license      = "MIT"
 description  = "Structures to deserialize OBO Foundry listings into."

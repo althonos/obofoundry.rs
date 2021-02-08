@@ -5,7 +5,7 @@
 [OBO Foundry]: http://www.obofoundry.org/
 
 
-[![TravisCI](https://img.shields.io/travis/althonos/obofoundry.rs/master.svg?maxAge=600&style=flat-square)](https://travis-ci.org/althonos/obofoundry.rs/branches)
+[![Actions](https://img.shields.io/github/workflow/status/althonos/obofoundry.rs/Test?style=flat-square&maxAge=600)](https://github.com/althonos/obofoundry.rs/actions)
 [![Codecov](https://img.shields.io/codecov/c/gh/althonos/obofoundry.rs/master.svg?style=flat-square&maxAge=600)](https://codecov.io/gh/althonos/obofoundry.rs)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&maxAge=2678400)](https://choosealicense.com/licenses/mit/)
 [![Source](https://img.shields.io/badge/source-GitHub-303030.svg?maxAge=2678400&style=flat-square)](https://github.com/althonos/obofoundry.rs)
@@ -46,7 +46,7 @@ extern crate serde_yaml;
 let url = "http://www.obofoundry.org/registry/ontologies.yml";
 
 let res = ureq::get(url).call();
-let reader = res.into_reader(); 
+let reader = res.into_reader();
 let foundry: obofoundry::Foundry = serde_yaml::from_reader(reader).unwrap();
 ```
 
@@ -59,3 +59,8 @@ See the online documentation at [`docs.rs`](https://docs.rs/obofoundry) for more
 This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 and provides a [changelog](https://github.com/althonos/obofoundry.rs/blob/master/CHANGELOG.md)
 in the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format.
+
+## License
+
+This library is provided under the open-source
+[MIT license](https://choosealicense.com/licenses/mit/).
