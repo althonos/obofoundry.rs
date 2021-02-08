@@ -102,6 +102,32 @@ where
     })
 }
 
+/// Deserialize the `mireots_from` field of a product
+fn mireots_vector<'de, D>(deserializer: D) -> Result<Vec<String>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+
+    #[derive(Deserialize, Debug)]
+    #[serde(untagged)]
+    pub enum Mireots {
+        Text(String),
+        Seq(Vec<String>),
+    }
+
+    impl From<Mireots> for Vec<String> {
+        fn from(m: Mireots) -> Vec<String> {
+            match m {
+                Mireots::Text(t) => vec![t],
+                Mireots::Seq(s) => s,
+            }
+        }
+    }
+
+    Option::<Mireots>::deserialize(deserializer)
+        .map(|opt| opt.map(Vec::<String>::from).unwrap_or_else(Vec::new))
+}
+
 /// Returns `true`.
 const fn bool_true() -> bool {
     true
@@ -338,7 +364,8 @@ pub struct Product {
     #[serde(default)]
     pub homepage: Option<Url>,
     pub license: Option<String>,
-    pub mireots_from: Option<String>,
+    #[serde(default, deserialize_with = "mireots_vector")]
+    pub mireots_from: Vec<String>,
     pub ontology_purl: Url,
     pub page: Option<String>,
     pub title: Option<String>,
@@ -380,6 +407,8 @@ pub struct Usage {
     #[serde(rename = "seeAlso")]
     pub see_also: Option<String>,
     pub reference: Option<String>,
+    #[serde(default, deserialize_with = "optional_vector")]
+    pub publications: Vec<Publication>,
 }
 
 /// The way an ontology can be used in a project.
@@ -397,6 +426,10 @@ pub enum UsageType {
     Analysis,
     #[serde(rename = "annotation and query")]
     AnnotationQuery,
+    #[serde(rename = "data-annotation")]
+    DataAnnotation,
+    #[serde(rename = "dataset-description")]
+    DatasetDescription,
 }
 
 /// A reference to an example usage of the ontology.
