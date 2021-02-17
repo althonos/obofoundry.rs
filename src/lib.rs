@@ -31,7 +31,7 @@
 //! fn main() {
 //!
 //!     let res = ureq::get(URL).call();
-//!     let reader = res.into_reader();
+//!     let reader = res.unwrap().into_reader();
 //!
 //!     let foundry: obofoundry::Foundry = serde_yaml::from_reader(reader).unwrap();
 //!     for ontology in &foundry.ontologies {
