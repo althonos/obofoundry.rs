@@ -1,6 +1,6 @@
 [package]
 name         = "obofoundry"
-version      = "0.8.0"
+version      = "0.8.1"
 authors      = ["Martin Larralde <martin.larralde@embl.de>"]
 edition      = "2018"
 license      = "MIT"

@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.8.1...HEAD
+
+
+## [v0.8.1] - 2022-01-11
+
+[v0.8.1]: https://github.com/althonos/obofoundry.rs/compare/v0.8.0...v0.8.1
+
+### Added
+- `Mapping` variant to `UsageType`.
 
 
 ## [v0.8.0] - 2021-02-08
@@ -16,7 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - `publications` field to `Usage`.
-- `DataAnnotation` and `DatasetDescription` values to `UsageType`.
+- `DataAnnotation` and `DatasetDescription` variant to `UsageType`.
 
 ### Changed
 - `mireots_from` field of `Product` is now a sequence.
