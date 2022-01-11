@@ -431,6 +431,7 @@ pub enum UsageType {
     DataAnnotation,
     #[serde(rename = "dataset-description")]
     DatasetDescription,
+    Mapping,
 }
 
 /// A reference to an example usage of the ontology.
