@@ -329,6 +329,8 @@ pub struct Contact {
     #[serde(alias = "contact")]
     pub github: Option<String>,
     pub label: String,
+    #[serde(default)]
+    pub orcid: Option<String>,
 }
 
 /// A CI/CD job pipeline running for the ontology.
@@ -375,6 +377,7 @@ pub struct Product {
     pub taxon: Option<String>,
     #[serde(rename = "type")]
     pub ty: Option<String>,
+    pub status: Option<String>,
 }
 
 /// A publication relevant to the ontology.
