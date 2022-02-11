@@ -81,3 +81,7 @@ jobs:
       with:
         command: publish
         args: --token ${{ secrets.CRATES_IO_TOKEN }}
+    - name: Update release notes
+      uses: rasmus-saks/release-a-changelog-action@v1.0.1
+      with:
+        github-token: '${{ secrets.GITHUB_TOKEN }}'

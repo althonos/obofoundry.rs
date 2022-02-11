@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.8.2...HEAD
+
+
+## [v0.8.2] - 2022-01-11
+
+[v0.8.2]: https://github.com/althonos/obofoundry.rs/compare/v0.8.1...v0.8.2
+
+### Added
+- `orcid` field to `Contact`.
+- `status` field to `Product`.
 
 
 ## [v0.8.1] - 2022-01-11
