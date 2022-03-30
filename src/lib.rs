@@ -214,6 +214,8 @@ pub struct Ontology {
     pub source: Option<String>,
     #[serde(default)]
     pub source_url: Option<Url>,
+    #[serde(default, deserialize_with = "optional_vector")]
+    pub tags: Vec<String>,
     pub taxon: Option<Taxon>,
     pub termgenie: Option<String>,
     pub title: String,
