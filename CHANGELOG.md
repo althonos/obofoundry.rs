@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.8.2...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.8.3...HEAD
+
+
+## [v0.8.3] - 2022-03-30
+
+[v0.8.3]: https://github.com/althonos/obofoundry.rs/compare/v0.8.2...v0.8.3
+
+### Added
+- `tags` field to `Ontology`.
 
 
 ## [v0.8.2] - 2022-01-11
