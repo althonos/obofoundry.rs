@@ -393,7 +393,7 @@ pub struct Publication {
     pub id: String,
     pub title: Option<String>,
     #[serde(default = "bool_false")]
-    pub preferred: bool
+    pub preferred: bool,
 }
 
 /// A taxon specifically relevant to the ontology.
@@ -471,7 +471,6 @@ pub struct Browser {
     pub title: String,
     pub url: Url,
 }
-
 
 /// A funding reference.
 #[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
