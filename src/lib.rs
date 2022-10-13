@@ -176,7 +176,7 @@ pub struct Ontology {
     #[serde(default)]
     pub facebook: Option<Url>,
     #[serde(default, deserialize_with = "optional_vector")]
-    pub funded_by: Vec<String>,
+    pub funded_by: Vec<Funding>,
     pub google_plus: Option<String>,
     pub homepage: Option<String>,
     pub id: String,
@@ -290,6 +290,8 @@ pub struct Build {
     pub notes: Option<String>,
     pub oort_args: Option<String>,
     pub path: Option<String>,
+    #[serde(default, deserialize_with = "optional_vector")]
+    pub publications: Vec<Publication>,
     #[serde(default)]
     pub source_url: Option<Url>,
     pub system: Option<BuildSystem>,
@@ -349,6 +351,8 @@ pub struct Job {
 pub enum JobType {
     #[serde(rename = "travis-ci")]
     TravisCi,
+    #[serde(rename = "github-action")]
+    GithubAction,
     DryRunBuild,
     ReleaseBuild,
 }
@@ -388,6 +392,8 @@ pub struct Product {
 pub struct Publication {
     pub id: String,
     pub title: Option<String>,
+    #[serde(default = "bool_false")]
+    pub preferred: bool
 }
 
 /// A taxon specifically relevant to the ontology.
@@ -464,4 +470,13 @@ pub struct Browser {
     pub label: String,
     pub title: String,
     pub url: Url,
+}
+
+
+/// A funding reference.
+#[derive(Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct Funding {
+    pub id: Url,
+    pub title: String,
 }
