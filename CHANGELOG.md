@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.8.3...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.9.0...HEAD
+
+
+## [v0.9.0] - 2022-10-13
+
+[v0.9.0]: https://github.com/althonos/obofoundry.rs/compare/v0.8.3...v0.9.0
+
+### Added
+- `Funding` struct with metadata about the funding body for an ontology.
+- `GithubAction` variant to the `JobType` enum.
+- `preferred` field to the `Publication` struct.
 
 
 ## [v0.8.3] - 2022-03-30
