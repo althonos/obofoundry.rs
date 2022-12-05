@@ -186,6 +186,8 @@ pub struct Ontology {
     pub integration_server: Option<String>,
     #[serde(default = "bool_false")]
     pub is_obsolete: bool,
+    #[serde(default)]
+    pub issue_requested: Option<u32>,
     #[serde(default, deserialize_with = "optional_vector")]
     pub jobs: Vec<Job>,
     pub label: Option<String>,
@@ -202,6 +204,8 @@ pub struct Ontology {
     pub products: Vec<Product>,
     #[serde(default, deserialize_with = "optional_vector")]
     pub publications: Vec<Publication>,
+    #[serde(default)]
+    pub pull_request_added: Option<u32>,
     #[serde(default, deserialize_with = "optional_vector")]
     pub redirects: Vec<Redirect>,
     pub releases: Option<String>,
