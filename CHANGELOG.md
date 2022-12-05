@@ -7,7 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.10.0...HEAD
+
+
+## [v0.10.0] - 2022-12-05
+
+[v0.10.0]: https://github.com/althonos/obofoundry.rs/compare/v0.9.0...v0.10.0
+
+### Added
+- `issue_requested` and `pull_request_added` fields to `Ontology`.
+
+### Changed
+- Bumped `serde_yaml` to `v0.9`.
 
 
 ## [v0.9.0] - 2022-10-13
