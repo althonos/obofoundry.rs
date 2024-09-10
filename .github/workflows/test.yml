@@ -10,19 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
     - name: Setup Rust stable
-      uses: actions-rs/toolchain@v1
+      uses: dtolnay/rust-toolchain@stable
       with:
-        profile: minimal
-        toolchain: stable
-        override: true
         components: rustfmt
     - name: Check code format
-      uses: actions-rs/cargo@v1
-      with:
-        command: fmt
-        args: --all -- --check
+      run: cargo fmt --all -- --check
   test:
     name: Test (${{ matrix.rust-toolchain }})
     runs-on: ubuntu-latest
@@ -35,32 +29,23 @@ jobs:
           - nightly
     steps:
     - name: Checkout code
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
     - name: Setup Rust ${{ matrix.rust-toolchain }}
-      uses: actions-rs/toolchain@v1
+      uses: dtolnay/rust-toolchain@stable
       with:
-        profile: minimal
         toolchain: ${{ matrix.rust-toolchain }}
-        override: true
-    - name: Setup cache for cargo
-      uses: actions/cache@v2
-      with:
-        path: target
-        key: ${{ runner.os }}-cargo-${{ matrix.rust-toolchain }}
     - name: Check code
-      uses: actions-rs/cargo@v1
-      with:
-        command: check
+      run: cargo check
+    - name: Install cargo-tarpaulin
+      run: cargo install cargo-tarpaulin
     - name: Measure code coverage
-      uses: actions-rs/tarpaulin@v0.1
-      with:
-        version: '0.16.0'
-        args: '--lib -v --out Xml --ciserver github-actions'
+      run: cargo tarpaulin --lib -v --out Xml --ciserver github-actions
     - name: Upload coverage statistics
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
         flags: rust-${{ matrix.rust-toolchain }}
+        verbose: true
   publish:
     name: Publish
     runs-on: ubuntu-latest
@@ -69,19 +54,22 @@ jobs:
     if: "startsWith(github.ref, 'refs/tags/v')"
     steps:
     - name: Checkout code
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
     - name: Setup Rust ${{ matrix.rust-toolchain }}
-      uses: actions-rs/toolchain@v1
-      with:
-        profile: minimal
-        toolchain: stable
-        override: true
+      uses: dtolnay/rust-toolchain@stable
     - name: Package and publish
-      uses: actions-rs/cargo@v1
-      with:
-        command: publish
-        args: --token ${{ secrets.CRATES_IO_TOKEN }}
+      run: cargo publish --token ${{ secrets.CRATES_IO_TOKEN }}
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    environment: GitHub Releases
+    needs: publish
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
     - name: Update release notes
-      uses: rasmus-saks/release-a-changelog-action@v1.0.1
+      uses: rasmus-saks/release-a-changelog-action@v1.2.0
       with:
         github-token: '${{ secrets.GITHUB_TOKEN }}'
