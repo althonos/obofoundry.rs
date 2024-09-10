@@ -433,6 +433,8 @@ pub struct Usage {
 pub enum UsageType {
     Annotation,
     OwlImport,
+    #[serde(rename = "owl:Ontology")]
+    OwlOntology,
     Query,
     #[serde(rename = "Database")]
     Database,
