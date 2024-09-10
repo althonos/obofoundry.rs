@@ -39,7 +39,7 @@ jobs:
     - name: Install cargo-tarpaulin
       run: cargo install cargo-tarpaulin
     - name: Measure code coverage
-      run: cargo tarpaulin --lib -v --out Xml --ciserver github-actions
+      run: cargo tarpaulin -v --out Xml --ciserver github-actions
     - name: Upload coverage statistics
       uses: codecov/codecov-action@v3
       with:
