@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/althonos/obofoundry.rs/compare/v0.11.0...HEAD
+
+
+## [v0.11.0] - 2024-09-10
+
+[v0.11.0]: https://github.com/althonos/obofoundry.rs/compare/v0.10.0...v0.11.0
+
+### Added
+- `Ontology` variant to `UsageType` enum.
 
 
 ## [v0.10.0] - 2022-12-05

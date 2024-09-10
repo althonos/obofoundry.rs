@@ -21,7 +21,7 @@ Add the `obofoundry` crate to the `Cargo.toml` manifest, as well as either
 
 ```toml
 [dependencies]
-obofoundry = "0.8"
+obofoundry = "0.11"
 serde_yaml = "0.8"
 ```
 
