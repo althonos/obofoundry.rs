@@ -365,7 +365,7 @@ pub struct Usage {
     #[serde(default, deserialize_with = "examples_vector", alias = "example")]
     pub examples: Vec<Example>,
     #[serde(alias = "url")]
-    pub user: Url,
+    pub user: String,
     pub label: Option<String>,
     #[serde(rename = "type")]
     pub ty: Option<UsageType>,
